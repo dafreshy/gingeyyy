@@ -119,13 +119,9 @@ function displayImage() {
     gallery.appendChild(commentElement);
 }
 
-function reloadPage() {
-    displayImage();
+function reloadImage() {
+    displayImage();  // Call displayImage function to reload a new random image and comment
 }
 
-window.onload = function() {
-    displayImage();  // Load initial image and comment
+window.onload = displayImage;
 
-    const reloadButton = document.getElementById('reload-btn');
-    reloadButton.addEventListener('click', reloadPage);
-};
