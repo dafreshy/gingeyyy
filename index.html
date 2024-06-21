@@ -3,24 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>snebs4eva</title>
+    <title>Snickers4eva</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
 </head>
 <body>
-    <header>
-        <h1>snebs4eva</h1>
-    </header>
-    <main>
-        <section id="container">
-            <section id="gallery">
-                <!-- Gallery image and comment will be added dynamically -->
-            </section>
-            <section id="comments">
-                <!-- Comments will be displayed here -->
-            </section>
-            <button id="reload-btn">Reload</button>
-        </section>
-    </main>
+    <div class="container">
+        <div id="gallery">
+            <!-- Image and comment will be dynamically added here -->
+        </div>
+        <button id="reload-button" onclick="reloadImage()">
+            <i class="fas fa-redo-alt"></i> Reload
+        </button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
