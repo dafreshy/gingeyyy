@@ -107,8 +107,9 @@ function displayImage() {
     gallery.innerHTML = '';  // Clear any existing content
 
     const randomImage = getRandomImage();
+
     const imgElement = document.createElement('img');
-    imgElement.src = 'images/' + randomImage.src;
+    imgElement.src = 'images/' + randomImage.src;  // Assuming images are in 'images' folder
     imgElement.alt = 'Memories Image';
     imgElement.classList.add('gallery-image');
     gallery.appendChild(imgElement);
@@ -118,4 +119,13 @@ function displayImage() {
     gallery.appendChild(commentElement);
 }
 
-window.onload = displayImage;
+function reloadPage() {
+    displayImage();
+}
+
+window.onload = function() {
+    displayImage();  // Load initial image and comment
+
+    const reloadButton = document.getElementById('reload-btn');
+    reloadButton.addEventListener('click', reloadPage);
+};
