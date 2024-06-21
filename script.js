@@ -103,15 +103,19 @@ function getRandomImage() {
 }
 
 function displayImage() {
-    const galleryImage = document.getElementById('gallery-image');
-    const commentsSection = document.getElementById('comments');
-    
+    const gallery = document.getElementById('gallery');
+    gallery.innerHTML = '';  // Clear any existing content
+
     const randomImage = getRandomImage();
-    
-    galleryImage.src = 'images/' + randomImage.src;
-    galleryImage.alt = randomImage.comment;
-    
-    commentsSection.innerHTML = `<p>${randomImage.comment}</p>`;
+    const imgElement = document.createElement('img');
+    imgElement.src = 'images/' + randomImage.src;
+    imgElement.alt = 'Memories Image';
+    imgElement.classList.add('gallery-image');
+    gallery.appendChild(imgElement);
+
+    const commentElement = document.createElement('p');
+    commentElement.textContent = randomImage.comment;
+    gallery.appendChild(commentElement);
 }
 
 window.onload = displayImage;
