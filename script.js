@@ -75,13 +75,13 @@ const images = [
     { src: 'IMG_20240305_092757_260.jpg', comment: 'Morning beach walks' },
     { src: 'IMG_20240305_092811_995.jpg', comment: 'Mountain cabin retreats' },
     { src: 'IMG_20240313_153257_857.jpg', comment: 'Cultural city tours' },
-    { src: 'IMG_20240313_153312_671.jpg', comment: 'Antique market finds' },
-    { src: 'IMG_20240313_153326_675.jpg', comment: 'Family barbecue joy' },
-    { src: 'IMG_20240316_202705_634.jpg', comment: 'Gardening together' },
-    { src: 'IMG_20240316_202734_461.jpg', comment: 'Cooking delicious meals' },
-    { src: 'IMG_20240316_202737_449.jpg', comment: 'Scenic mountain views' },
-    { src: 'IMG_20240410_124421_915.jpg', comment: 'Lakeside cabin vacations' },
-    { src: 'IMG_20240428_123849_760.jpg', comment: 'Family road trip adventures' },
+    { src: 'IMG_20240313_153312_671.jpg', comment: 'Historical landmarks' },
+    { src: 'IMG_20240313_153326_675.jpg', comment: 'Road trip nostalgia' },
+    { src: 'IMG_20240316_202705_634.jpg', comment: 'Family road trip adventures' },
+    { src: 'IMG_20240316_202734_461.jpg', comment: 'Summer music festival fun' },
+    { src: 'IMG_20240316_202737_449.jpg', comment: 'Winter wonderland' },
+    { src: 'IMG_20240410_124421_915.jpg', comment: 'Sunny beach days' },
+    { src: 'IMG_20240428_123849_760.jpg', comment: 'Winter wonderland' },
     { src: 'Snapchat-1313307410.jpg', comment: 'Summer music festival fun' },
     { src: 'Snapchat-134211939.jpg', comment: 'Winter wonderland' },
     { src: 'Snapchat-1414422713.jpg', comment: 'Sunny beach days' },
@@ -104,19 +104,15 @@ function getRandomImage() {
 }
 
 function displayImage() {
-    const gallery = document.getElementById('gallery');
-    gallery.innerHTML = '';  // Clear any existing content
-
+    const galleryImage = document.getElementById('gallery-image');
+    const commentsSection = document.getElementById('comments');
+    
     const randomImage = getRandomImage();
-    const imgElement = document.createElement('img');
-    imgElement.src = 'images/' + randomImage.src;
-    imgElement.alt = 'Memories Image';
-    imgElement.classList.add('gallery-image');
-    gallery.appendChild(imgElement);
-
-    const commentElement = document.createElement('p');
-    commentElement.textContent = randomImage.comment;
-    gallery.appendChild(commentElement);
+    
+    galleryImage.src = 'images/' + randomImage.src;
+    galleryImage.alt = randomImage.comment;
+    
+    commentsSection.innerHTML = `<p>${randomImage.comment}</p>`;
 }
 
 window.onload = displayImage;
