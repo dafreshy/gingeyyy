@@ -107,10 +107,14 @@ function displayImage() {
     gallery.innerHTML = '';  // Clear any existing content
 
     const randomImage = getRandomImage();
+
     const imgElement = document.createElement('img');
-    imgElement.src = 'images/' + randomImage.src;
+    imgElement.src = 'images/' + randomImage.src;  // Assuming images are in 'images' folder
     imgElement.alt = 'Memories Image';
     imgElement.classList.add('gallery-image');
+    imgElement.addEventListener('click', function() {
+        location.reload();  // Reload the page when image is clicked/tapped
+    });
     gallery.appendChild(imgElement);
 
     const commentElement = document.createElement('p');
