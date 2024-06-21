@@ -20,9 +20,17 @@ h1 {
     margin-bottom: 20px;
 }
 
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
 .gallery-image {
-    max-width: 100%;
-    max-height: 100%;
+    width: 300px; /* Set a fixed width for all images */
+    height: auto; /* Automatically adjust height to maintain aspect ratio */
+    max-width: 100%; /* Ensure images don't exceed their container width */
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
