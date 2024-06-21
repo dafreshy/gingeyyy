@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snickers4eva</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
 </head>
 <body>
     <div class="container">
-        <div id="gallery">
-            <!-- Image and comment will be dynamically added here -->
+        <h1>Snickers4eva</h1>
+        <div id="gallery" class="gallery">
+            <div class="image-container">
+                <img id="gallery-image" class="gallery-image" src="" alt="Memories Image">
+            </div>
+            <div id="comments" class="comments"></div>
         </div>
-        <button id="reload-button" onclick="reloadImage()">
-            <i class="fas fa-redo-alt"></i> Reload
-        </button>
     </div>
     <script src="script.js"></script>
 </body>
