@@ -98,26 +98,21 @@ const images = [
     'Snapchat-876136559.jpg'
 ];
 
-function getRandomImages() {
-    let selectedImages = [];
-    while (selectedImages.length < 3) {
-        let randomIndex = Math.floor(Math.random() * images.length);
-        if (!selectedImages.includes(images[randomIndex])) {
-            selectedImages.push(images[randomIndex]);
-        }
-    }
-    return selectedImages;
+function getRandomImage() {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
 }
 
-function displayImages() {
+function displayImage() {
     const gallery = document.getElementById('gallery');
-    gallery.innerHTML = '';  // Clear any existing images
-    const randomImages = getRandomImages();
-    randomImages.forEach(image => {
-        const imgElement = document.createElement('img');
-        imgElement.src = 'images/' + image;
-        gallery.appendChild(imgElement);
-    });
+    gallery.innerHTML = '';  // Clear any existing content
+
+    const randomImage = getRandomImage();
+    const imgElement = document.createElement('img');
+    imgElement.src = 'images/' + randomImage;
+    imgElement.alt = 'Memories Image';
+    imgElement.classList.add('gallery-image');
+    gallery.appendChild(imgElement);
 }
 
-window.onload = displayImages;
+window.onload = displayImage;
