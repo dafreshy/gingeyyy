@@ -107,9 +107,8 @@ function displayImage() {
     gallery.innerHTML = '';  // Clear any existing content
 
     const randomImage = getRandomImage();
-
     const imgElement = document.createElement('img');
-    imgElement.src = 'images/' + randomImage.src;  // Assuming images are in 'images' folder
+    imgElement.src = 'images/' + randomImage.src;
     imgElement.alt = 'Memories Image';
     imgElement.classList.add('gallery-image');
     gallery.appendChild(imgElement);
@@ -119,9 +118,4 @@ function displayImage() {
     gallery.appendChild(commentElement);
 }
 
-function reloadImage() {
-    displayImage();  // Call displayImage function to reload a new random image and comment
-}
-
 window.onload = displayImage;
-
