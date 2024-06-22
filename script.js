@@ -97,31 +97,34 @@ const images = [
     { src: 'Snapchat-876136559.jpg', comment: 'we was laying behind princeton battle memorial on a picnic blanket' },
 ];
 
-const galleryImage = document.getElementById('gallery-image');
-const commentsContainer = document.getElementById('comments');
-const prevButton = document.getElementById('prev-button');
-const nextButton = document.getElementById('next-button');
-let currentIndex = 0;
-
-function updateGallery() {
-    galleryImage.src = images[currentIndex].src;
-    commentsContainer.textContent = images[currentIndex].comment;
+function getRandomImage() {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
 }
 
-function loadNextImage() {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateGallery();
+function getRandomImage() {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
 }
 
-function loadPrevImage() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateGallery();
+function displayImage() {
+    const gallery = document.getElementById('gallery');
+    gallery.innerHTML = '';  // Clear any existing content
+
+    const randomImage = getRandomImage();
+
+    const imgElement = document.createElement('img');
+    imgElement.src = 'images/' + randomImage.src;  // Assuming images are in 'images' folder
+    imgElement.alt = 'Memories Image';
+    imgElement.classList.add('gallery-image');
+    imgElement.addEventListener('click', function() {
+        location.reload();  // Reload the page when image is clicked/tapped
+    });
+    gallery.appendChild(imgElement);
+
+    const commentElement = document.createElement('p');
+    commentElement.textContent = randomImage.comment;
+    gallery.appendChild(commentElement);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('mainContent').style.display !== 'none') {
-        updateGallery();
-    }
-    prevButton.addEventListener('click', loadPrevImage);
-    nextButton.addEventListener('click', loadNextImage);
-});
+window.onload = displayImage;
