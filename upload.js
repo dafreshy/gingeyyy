@@ -3,10 +3,12 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
 
     const formData = new FormData(this);
     const fileInput = document.getElementById('fileInput');
+    const datetimeInput = document.getElementById('datetimeInput').value;
 
     if (fileInput.files.length > 0) {
         const file = fileInput.files[0];
         formData.append('file', file);
+        formData.append('datetime', datetimeInput);
 
         fetch('upload.php', {
             method: 'POST',
