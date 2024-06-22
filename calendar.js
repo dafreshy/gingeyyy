@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const imageElement = document.createElement('img');
                 imageElement.src = 'images/' + image.src;
                 imageElement.alt = 'Uploaded Image';
-                imageElement.title = image.comment;
+                imageElement.title = `${image.comment}\nDate/Time: ${image.datetime}`;
 
                 // You can customize how you want to display images in the calendar
                 calendar.appendChild(imageElement);
