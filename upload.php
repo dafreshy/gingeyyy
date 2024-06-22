@@ -2,6 +2,7 @@
 $uploadDir = 'images/';
 $uploadFile = $uploadDir . basename($_FILES['file']['name']);
 $comment = $_POST['commentInput'];
+$datetime = $_POST['datetime'];
 
 // Check if file is an image
 $check = getimagesize($_FILES['file']['tmp_name']);
@@ -20,8 +21,12 @@ if (file_exists($uploadFile)) {
 
 // Try to upload file
 if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadFile)) {
-    // Store comment and file name in a JSON file or database for later retrieval
-    $data = json_encode(array('src' => basename($_FILES['file']['name']), 'comment' => $comment));
+    // Store comment, file name, and datetime in a JSON file or database for later retrieval
+    $data = json_encode(array(
+        'src' => basename($_FILES['file']['name']),
+        'comment' => $comment,
+        'datetime' => $datetime
+    ));
 
     file_put_contents('uploaded_images.json', $data . PHP_EOL, FILE_APPEND);
 
