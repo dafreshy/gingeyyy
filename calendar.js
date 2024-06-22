@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const imageElement = document.createElement('img');
                 imageElement.src = 'images/' + item.src;
                 imageElement.alt = 'Uploaded Image';
-                imageElement.title = `${item.comment}\nDate/Time: ${item.datetime}`;
+                imageElement.title = item.comment;
 
                 calendar.appendChild(imageElement);
             });
