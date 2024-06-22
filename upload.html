@@ -9,9 +9,9 @@
 <body>
     <div class="container">
         <h1>Upload Pictures</h1>
-        <form id="upload-form">
-            <input type="file" id="file-input" required>
-            <textarea id="comment" placeholder="Add a comment"></textarea>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="fileInput" name="fileInput" accept="image/*" required>
+            <textarea id="commentInput" name="commentInput" placeholder="Enter a comment..." required></textarea>
             <button type="submit">Upload</button>
         </form>
     </div>
