@@ -121,5 +121,3 @@ function displayImage() {
     commentElement.textContent = randomImage.comment;
     gallery.appendChild(commentElement);
 }
-
-window.onload = displayImage;
