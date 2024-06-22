@@ -11,6 +11,7 @@ window.onload = function() {
         const password = passwordInput.value;
         if (password === 'snickers') { // Replace 'yourpassword' with your actual password
             modal.style.display = 'none'; // Hide the modal
+            displayImage(); // Call displayImage after password is validated
         } else {
             errorMessage.style.display = 'block';
         }
