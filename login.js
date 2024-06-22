@@ -9,7 +9,7 @@ window.onload = function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
         const password = passwordInput.value;
-        if (password === 'snickers') { // Replace 'yourpassword' with your actual password
+        if (password === '1205') { // Replace 'yourpassword' with your actual password
             modal.style.display = 'none'; // Hide the modal
             displayImage(); // Call displayImage after password is validated
         } else {
