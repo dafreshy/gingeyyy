@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snickers4eva</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (!localStorage.getItem('authenticated')) {
+                const password = prompt("Enter Password:");
+                if (password !== 'yourpassword') {
+                    alert("Incorrect password. Please try again.");
+                    location.reload();
+                } else {
+                    localStorage.setItem('authenticated', true);
+                }
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="container">
