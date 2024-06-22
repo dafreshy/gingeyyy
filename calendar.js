@@ -1,26 +1,18 @@
-const images = [ /* Your existing images array */ ];
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('uploaded_images.json')
+        .then(response => response.json())
+        .then(data => {
+            const calendar = document.getElementById('calendar');
 
-function createCalendar() {
-    const calendarDiv = document.getElementById('calendar');
-    calendarDiv.innerHTML = '';
+            data.forEach(image => {
+                const imageElement = document.createElement('img');
+                imageElement.src = 'images/' + image.src;
+                imageElement.alt = 'Uploaded Image';
+                imageElement.title = image.comment;
 
-    const dates = images.map(image => {
-        const [year, month, day] = image.src.split('_')[0].split('-').map(Number);
-        return { year, month, day, ...image };
-    });
-
-    dates.sort((a, b) => new Date(a.year, a.month - 1, a.day) - new Date(b.year, b.month - 1, b.day));
-
-    dates.forEach(date => {
-        const dateDiv = document.createElement('div');
-        dateDiv.className = 'calendar-date';
-        dateDiv.innerHTML = `
-            <img src="images/${date.src}" alt="${date.comment}" class="calendar-image">
-            <p>${date.comment}</p>
-            <p>${date.month}/${date.day}/${date.year}</p>
-        `;
-        calendarDiv.appendChild(dateDiv);
-    });
-}
-
-window.onload = createCalendar;
+                // You can customize how you want to display images in the calendar
+                calendar.appendChild(imageElement);
+            });
+        })
+        .catch(error => console.error('Error fetching uploaded images:', error));
+});
