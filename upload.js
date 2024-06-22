@@ -1,18 +1,27 @@
-document.getElementById('upload-form').addEventListener('submit', function(event) {
+document.getElementById('uploadForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    const fileInput = document.getElementById('file-input').files[0];
-    const comment = document.getElementById('comment').value;
 
-    if (fileInput) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const newImage = {
-                src: e.target.result.split(',')[1],
-                comment: comment
-            };
-            images.push(newImage);  // Append to images array
-            alert('Image uploaded successfully!');
-        };
-        reader.readAsDataURL(fileInput);
+    const formData = new FormData(this);
+    const fileInput = document.getElementById('fileInput');
+
+    if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        formData.append('file', file);
+
+        fetch('upload.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            location.reload(); // Reload the page to show uploaded image
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error uploading image.');
+        });
+    } else {
+        alert('Please select an image file.');
     }
 });
