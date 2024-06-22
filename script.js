@@ -102,11 +102,6 @@ function getRandomImage() {
     return images[randomIndex];
 }
 
-function getRandomImage() {
-    const randomIndex = Math.floor(Math.random() * images.length);
-    return images[randomIndex];
-}
-
 function displayImage() {
     const gallery = document.getElementById('gallery');
     gallery.innerHTML = '';  // Clear any existing content
