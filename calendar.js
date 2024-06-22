@@ -4,13 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             const calendar = document.getElementById('calendar');
 
-            data.forEach(image => {
+            data.forEach(item => {
                 const imageElement = document.createElement('img');
-                imageElement.src = 'images/' + image.src;
+                imageElement.src = 'images/' + item.src;
                 imageElement.alt = 'Uploaded Image';
-                imageElement.title = `${image.comment}\nDate/Time: ${image.datetime}`;
+                imageElement.title = `${item.comment}\nDate/Time: ${item.datetime}`;
 
-                // You can customize how you want to display images in the calendar
                 calendar.appendChild(imageElement);
             });
         })
